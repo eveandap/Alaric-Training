@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 320" width="512" height="512">
+  <defs>
+    <radialGradient id="rim" cx="35%" cy="25%" r="70%">
+      <stop offset="0" stop-color="#fff0b0"/>
+      <stop offset="0.35" stop-color="#d9a441"/>
+      <stop offset="0.68" stop-color="#9b5a20"/>
+      <stop offset="1" stop-color="#3a1f0a"/>
+    </radialGradient>
+    <radialGradient id="face" cx="35%" cy="25%" r="75%">
+      <stop offset="0" stop-color="#143f74"/>
+      <stop offset="0.58" stop-color="#061a35"/>
+      <stop offset="1" stop-color="#020913"/>
+    </radialGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="5" flood-color="#000" flood-opacity=".45"/>
+    </filter>
+  </defs>
+  <rect width="280" height="320" fill="none"/>
+  <g filter="url(#shadow)">
+    <circle cx="140" cy="150" r="122" fill="url(#rim)"/>
+    <circle cx="140" cy="150" r="107" fill="#061a35" stroke="#f7d27a" stroke-width="4"/>
+    <circle cx="140" cy="150" r="94" fill="url(#face)" stroke="#103a6d" stroke-width="3"/>
+    <path d="M57 85 C95 42 185 42 223 85" fill="none" stroke="#f7d27a" stroke-width="5" opacity=".75"/>
+    <path d="M58 216 C96 258 184 258 222 216" fill="none" stroke="#f7d27a" stroke-width="5" opacity=".75"/>
+    <text x="140" y="58" text-anchor="middle" font-size="24" fill="#f7d27a" font-family="Arial Black, Arial" font-weight="900">AP</text>
+    <text x="140" y="249" text-anchor="middle" font-size="20" fill="#f7d27a" font-family="Arial Black, Arial" font-weight="900">7 DAY STREAK</text>
+    <text x="140" y="178" text-anchor="middle" font-size="110" fill="#f7d27a" stroke="#061a35" stroke-width="3" font-family="Arial Black, Arial" font-weight="900">7</text>
+    <g>
+      <rect x="105" y="274" width="70" height="30" rx="8" fill="#102a4d" stroke="#d9a441" stroke-width="3"/>
+      <text x="140" y="297" text-anchor="middle" font-size="24" fill="#f7d27a" font-family="Arial Black, Arial" font-weight="900">I</text>
+    </g>
+  </g>
+</svg>
