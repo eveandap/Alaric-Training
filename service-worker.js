@@ -1,0 +1,38 @@
+const CACHE_NAME = 'ap-baseball-firestore-ready-v2-stop-sync';
+const APP_SHELL = [
+  "./",
+  "./index.html",
+  "./manifest.json",
+  "./firebase-config.js",
+  "./firebase-sync.js",
+  "./firestore.rules",
+  "./firestore.indexes.json",
+  "./icons/favicon.ico",
+  "./icons/favicon-16.png",
+  "./icons/favicon-32.png",
+  "./icons/icon-180.png",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/maskable-512.png",
+  "./badges/brick-wall.png",
+  "./badges/bucket-boss.svg",
+  "./badges/iron-glove.svg",
+  "./badges/barrel-machine.svg",
+  "./badges/quick-hands.svg",
+  "./badges/first-step.svg",
+  "./badges/lightning-legs.svg",
+  "./badges/rubber-legs.svg",
+  "./badges/forearm-forge.svg",
+  "./badges/gap-to-gap.svg",
+  "./badges/launch-sequence.svg",
+  "./badges/finish-better.svg",
+  "./badges/five-tool-club.svg",
+  "./badges/seven-day-streak.svg",
+  "./badges/thirty-day-streak.svg",
+  "./badges/hundred-workouts.svg",
+  "./badges/elite-performer.svg",
+  "./ap_adaptive_performance_coin_selected_v9_technical.glb",
+];
+self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL))); self.skipWaiting(); });
+self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))))); self.clients.claim(); });
+self.addEventListener('fetch', event => { if (event.request.method !== 'GET') return; event.respondWith(caches.match(event.request, { ignoreSearch: true }).then(cached => { if (cached) return cached; return fetch(event.request).then(response => { const copy = response.clone(); caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy)); return response; }).catch(() => caches.match('./index.html')); })); });
